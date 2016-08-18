@@ -1,0 +1,45 @@
+<html>
+<body>
+<FORM NAME="joe">
+<INPUT TYPE="hidden" NAME="burns">
+</FORM>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+<SCRIPT LANGUAGE="javascript">
+
+var locate = window.location
+document.joe.burns.value = locate
+
+var address = document.joe.burns.value
+
+function delineate(str)
+{
+theleft = str.indexOf("=") + 1;
+theright = str.lastIndexOf("&");
+return(str.substring(theleft, theright));
+}
+document.write("location is " +delineate(address));
+
+
+
+
+
+
+var geocoder = new google.maps.Geocoder();
+geocoder.geocode( { 'address': address}, function(results, status) {
+
+  if (status == google.maps.GeocoderStatus.OK) {
+    var latitude = results[0].geometry.location.lat();
+    var longitude = results[0].geometry.location.lng();
+    alert(latitude);
+	alert(longitude);
+  } 
+});
+
+ 
+</script>
+
+
+
+</SCRIPT>
+</body>
+</html>
