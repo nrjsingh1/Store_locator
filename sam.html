@@ -1,0 +1,30 @@
+<html>
+<head>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+
+var geocoder = new google.maps.Geocoder();
+var address = "new york";
+
+geocoder.geocode( { 'address': address}, function(results, status) {
+
+  if (status == google.maps.GeocoderStatus.OK) {
+    var latitude = results[0].geometry.location.lat();
+    var longitude = results[0].geometry.location.lng();
+    alert(latitude);
+    alert(longitude);
+    document.write(latitude);
+  } 
+}); 
+</script>
+</head>
+<body> 
+ <form>  
+Enter the location: <input type="text" name="guindy"><br> 
+
+ 
+ <input type="submit" value="Submit" onclick="get_coords('1600 Pennsylvania Avenue NW Washington, DC 20500')"> 
+ </form> 
+ 
+  </body> 
+ </html> 
