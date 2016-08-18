@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAzVl02-CpAwjdQwm9qNTbBqD4FHiUwm0"
+            type="text/javascript">
+</script>
+<script type="text/javascript">
+function get_coords(address)
+{
+    var gc      = new google.maps.Geocoder(),
+        opts    = { 'address' : address };
+
+    gc.geocode(opts, function (results, status)
+    {
+        if (status == google.maps.GeocoderStatus.OK)
+        {   
+            var loc     = results[0].geometry.location,
+                lat     = loc.$a,
+                long    = loc.ab;
+
+            // Success.  Do stuff here.
+        }
+        else
+        {
+            // Ruh roh.  Output error stuff here
+        }
+    });
+}
+
+</script>
+<body>
+
+<form>
+Enter the location: <input type="text" name="guindy"><br>
+
+<input type="submit" value="Submit" onclick="get_coords('1600 Pennsylvania Avenue NW Washington, DC 20500')">
+</form>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
